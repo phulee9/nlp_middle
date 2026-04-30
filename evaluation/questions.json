@@ -1,0 +1,7 @@
+[
+  {
+    "question": "What is the main purpose of the document?",
+    "expected_answer": "The document explains the topic and should be answered from the uploaded PDF.",
+    "relevant_chunks": []
+  }
+]

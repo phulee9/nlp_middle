@@ -1,0 +1,43 @@
+# ============================================================
+# Hybrid RAG System — Python Dependencies
+# Install with: pip install -r requirements.txt
+# ============================================================
+
+# ── PDF Processing ───────────────────────────────────────────
+pypdf>=4.0.0
+pdfplumber>=0.10.0
+
+# ── Text / NLP ───────────────────────────────────────────────
+rank-bm25>=0.2.2
+sentence-transformers>=2.7.0
+
+# ── BAAI Models (bge-m3 embedding + bge-reranker) ────────────
+FlagEmbedding>=1.2.0
+
+# ── Vector Index ─────────────────────────────────────────────
+faiss-cpu>=1.8.0
+
+# ── LLM API ──────────────────────────────────────────────────
+groq>=0.9.0
+openai>=1.0.0          # used as OpenAI-compatible client for Groq
+
+# ── Data / Evaluation ────────────────────────────────────────
+numpy>=1.26.0
+pandas>=2.1.0
+scikit-learn>=1.4.0
+
+# ── Utilities ────────────────────────────────────────────────
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+
+python-dotenv
+pymupdf 
+pytesseract 
+pillow
+
+fastapi 
+uvicorn 
+python-multipart
+# conda install -c conda-forge tesseract -y
+# $env:TESSDATA_PREFIX="C:\Users\train\miniconda3\envs\nlp_env\Library\share\tessdata"
+# uvicorn rag.api_server:app --host 127.0.0.1 --port 8000

@@ -1,0 +1,1340 @@
+[
+    {
+        "id": "Q001",
+        "question": "Which company is covered by the interim consolidated financial statements?",
+        "expected_answer": "Vingroup Joint Stock Company.",
+        "relevant_keywords": [
+            "Vingroup Joint Stock Company",
+            "interim consolidated financial statements"
+        ]
+    },
+    {
+        "id": "Q002",
+        "question": "What reporting period do the interim consolidated financial statements cover?",
+        "expected_answer": "The six-month period ended 30 June 2023.",
+        "relevant_keywords": [
+            "six-month period ended 30 June 2023",
+            "30 June 2023"
+        ]
+    },
+    {
+        "id": "Q003",
+        "question": "Who reviewed the interim consolidated financial statements?",
+        "expected_answer": "Ernst & Young Vietnam Limited reviewed the statements.",
+        "relevant_keywords": [
+            "Ernst & Young Vietnam Limited",
+            "report on review"
+        ]
+    },
+    {
+        "id": "Q004",
+        "question": "What currency are the financial statements presented in?",
+        "expected_answer": "Vietnam dong million, abbreviated VND million.",
+        "relevant_keywords": [
+            "Currency: VND million",
+            "Vietnam dong million"
+        ]
+    },
+    {
+        "id": "Q005",
+        "question": "What accounting system does the Group apply?",
+        "expected_answer": "The General Journal system.",
+        "relevant_keywords": [
+            "General Journal system",
+            "accounting documentation system"
+        ]
+    },
+    {
+        "id": "Q006",
+        "question": "When were the statements signed in Hanoi?",
+        "expected_answer": "29 August 2023.",
+        "relevant_keywords": [
+            "Hanoi, Vietnam",
+            "29 August 2023"
+        ]
+    },
+    {
+        "id": "Q007",
+        "question": "Who was the legal representative of the Company?",
+        "expected_answer": "Mr. Nguyen Viet Quang.",
+        "relevant_keywords": [
+            "legal representative",
+            "Nguyen Viet Quang"
+        ]
+    },
+    {
+        "id": "Q008",
+        "question": "Who was authorised to sign the interim consolidated financial statements?",
+        "expected_answer": "Ms. Mai Huong Noi was authorised by Mr. Nguyen Viet Quang.",
+        "relevant_keywords": [
+            "Mai Huong Noi",
+            "authorised by Mr. Nguyen Viet Quang"
+        ]
+    },
+    {
+        "id": "Q009",
+        "question": "What was the auditor's conclusion on the reviewed financial statements?",
+        "expected_answer": "Nothing came to the auditors' attention causing them to believe the statements were not prepared in all material respects in accordance with applicable standards and regulations.",
+        "relevant_keywords": [
+            "nothing has come to our attention",
+            "Conclusion",
+            "Vietnamese Accounting Standard No. 27"
+        ]
+    },
+    {
+        "id": "Q010",
+        "question": "What was the principal activity of the Company?",
+        "expected_answer": "To invest in, construct and trade real estate properties; carry out capital mobilisation and investment activities; and provide general administrative services.",
+        "relevant_keywords": [
+            "principal activity",
+            "construct and trade real estate properties",
+            "capital mobilisation"
+        ]
+    },
+    {
+        "id": "Q011",
+        "question": "Where is the Company's head office located?",
+        "expected_answer": "No. 7, Bang Lang 1 Street, Vinhomes Riverside Urban Area, Viet Hung Ward, Long Bien District, Hanoi, Vietnam.",
+        "relevant_keywords": [
+            "Bang Lang 1 Street",
+            "Vinhomes Riverside Urban Area",
+            "Long Bien District"
+        ]
+    },
+    {
+        "id": "Q012",
+        "question": "Where is the Company's branch located?",
+        "expected_answer": "No. 72, Le Thanh Ton and No. 45A, Ly Tu Trong Street, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam.",
+        "relevant_keywords": [
+            "Le Thanh Ton",
+            "Ly Tu Trong Street",
+            "Ben Nghe Ward"
+        ]
+    },
+    {
+        "id": "Q013",
+        "question": "On which stock exchange are the Company's shares listed?",
+        "expected_answer": "Ho Chi Minh City Stock Exchange (HOSE).",
+        "relevant_keywords": [
+            "Ho Chi Minh City Stock Exchange",
+            "HOSE"
+        ]
+    },
+    {
+        "id": "Q014",
+        "question": "What is the stock symbol of Vingroup Joint Stock Company?",
+        "expected_answer": "VIC.",
+        "relevant_keywords": [
+            "stock symbol VIC",
+            "VIC"
+        ]
+    },
+    {
+        "id": "Q015",
+        "question": "How many employees did the Company and subsidiaries have at 30 June 2023?",
+        "expected_answer": "295 employees.",
+        "relevant_keywords": [
+            "employees as at 30 June 2023",
+            "295 employees"
+        ]
+    },
+    {
+        "id": "Q016",
+        "question": "How many subsidiaries did the Group have as at 30 June 2023?",
+        "expected_answer": "106 subsidiaries.",
+        "relevant_keywords": [
+            "106 subsidiaries",
+            "as at 30 June 2023"
+        ]
+    },
+    {
+        "id": "Q017",
+        "question": "What was the Chairman of the Board of Directors?",
+        "expected_answer": "Mr. Pham Nhat Vuong.",
+        "relevant_keywords": [
+            "Pham Nhat Vuong",
+            "Chairman"
+        ]
+    },
+    {
+        "id": "Q018",
+        "question": "Who was the Chief Executive Officer?",
+        "expected_answer": "Mr. Nguyen Viet Quang.",
+        "relevant_keywords": [
+            "Nguyen Viet Quang",
+            "Chief Executive Officer"
+        ]
+    },
+    {
+        "id": "Q019",
+        "question": "Who was the Chief Accountant?",
+        "expected_answer": "Nguyen Thi Thu Hien.",
+        "relevant_keywords": [
+            "Nguyen Thi Thu Hien",
+            "Chief Accountant"
+        ]
+    },
+    {
+        "id": "Q020",
+        "question": "Who prepared the financial statements?",
+        "expected_answer": "Van Thi Hai Ha was shown as preparer.",
+        "relevant_keywords": [
+            "Van Thi Hai Ha",
+            "Preparer"
+        ]
+    },
+    {
+        "id": "Q021",
+        "question": "Which pages contain the interim consolidated balance sheet according to the contents?",
+        "expected_answer": "Pages 6-9.",
+        "relevant_keywords": [
+            "Interim consolidated balance sheet",
+            "6 - 9"
+        ]
+    },
+    {
+        "id": "Q022",
+        "question": "Which pages contain the interim consolidated income statement according to the contents?",
+        "expected_answer": "Pages 10-11.",
+        "relevant_keywords": [
+            "Interim consolidated income statement",
+            "10 - 11"
+        ]
+    },
+    {
+        "id": "Q023",
+        "question": "Which pages contain the interim consolidated cash flow statement according to the contents?",
+        "expected_answer": "Pages 12-13.",
+        "relevant_keywords": [
+            "Interim consolidated cash flow statement",
+            "12 - 13"
+        ]
+    },
+    {
+        "id": "Q024",
+        "question": "Which pages contain the notes to the interim consolidated financial statements?",
+        "expected_answer": "Pages 14-91.",
+        "relevant_keywords": [
+            "Notes to the interim consolidated financial statements",
+            "14 - 91"
+        ]
+    },
+    {
+        "id": "Q025",
+        "question": "Which pages contain the appendix about subsidiaries?",
+        "expected_answer": "Pages 92-101.",
+        "relevant_keywords": [
+            "Appendix 1",
+            "subsidiaries",
+            "92 - 101"
+        ]
+    },
+    {
+        "id": "Q026",
+        "question": "What were total assets at 30 June 2023?",
+        "expected_answer": "VND 599,177,139 million.",
+        "relevant_keywords": [
+            "TOTAL ASSETS",
+            "599,177,139"
+        ]
+    },
+    {
+        "id": "Q027",
+        "question": "What were total assets at 31 December 2022?",
+        "expected_answer": "VND 577,407,240 million.",
+        "relevant_keywords": [
+            "TOTAL ASSETS",
+            "577,407,240"
+        ]
+    },
+    {
+        "id": "Q028",
+        "question": "What were current assets at 30 June 2023?",
+        "expected_answer": "VND 279,229,101 million.",
+        "relevant_keywords": [
+            "CURRENT ASSETS",
+            "279,229,101"
+        ]
+    },
+    {
+        "id": "Q029",
+        "question": "What were non-current assets at 30 June 2023?",
+        "expected_answer": "VND 319,948,038 million.",
+        "relevant_keywords": [
+            "NON-CURRENT ASSETS",
+            "319,948,038"
+        ]
+    },
+    {
+        "id": "Q030",
+        "question": "What were cash and cash equivalents at 30 June 2023?",
+        "expected_answer": "VND 18,445,846 million.",
+        "relevant_keywords": [
+            "Cash and cash equivalents",
+            "18,445,846"
+        ]
+    },
+    {
+        "id": "Q031",
+        "question": "What were short-term investments at 30 June 2023?",
+        "expected_answer": "VND 4,919,914 million.",
+        "relevant_keywords": [
+            "Short-term investments",
+            "4,919,914"
+        ]
+    },
+    {
+        "id": "Q032",
+        "question": "What were current accounts receivable at 30 June 2023?",
+        "expected_answer": "VND 144,449,651 million.",
+        "relevant_keywords": [
+            "Current accounts receivable",
+            "144,449,651"
+        ]
+    },
+    {
+        "id": "Q033",
+        "question": "What were inventories at 30 June 2023?",
+        "expected_answer": "VND 84,742,609 million.",
+        "relevant_keywords": [
+            "Inventories",
+            "84,742,609"
+        ]
+    },
+    {
+        "id": "Q034",
+        "question": "What were other current assets at 30 June 2023?",
+        "expected_answer": "VND 26,671,781 million.",
+        "relevant_keywords": [
+            "Other current assets",
+            "26,671,781"
+        ]
+    },
+    {
+        "id": "Q035",
+        "question": "What were fixed assets at 30 June 2023?",
+        "expected_answer": "VND 143,635,620 million.",
+        "relevant_keywords": [
+            "Fixed assets",
+            "143,635,620"
+        ]
+    },
+    {
+        "id": "Q036",
+        "question": "What were investment properties at 30 June 2023?",
+        "expected_answer": "VND 39,780,799 million.",
+        "relevant_keywords": [
+            "Investment properties",
+            "39,780,799"
+        ]
+    },
+    {
+        "id": "Q037",
+        "question": "What was long-term assets in progress at 30 June 2023?",
+        "expected_answer": "VND 101,571,105 million.",
+        "relevant_keywords": [
+            "Long-term assets in progress",
+            "101,571,105"
+        ]
+    },
+    {
+        "id": "Q038",
+        "question": "What were long-term investments at 30 June 2023?",
+        "expected_answer": "VND 10,168,849 million.",
+        "relevant_keywords": [
+            "Long-term investments",
+            "10,168,849"
+        ]
+    },
+    {
+        "id": "Q039",
+        "question": "What were total liabilities at 30 June 2023?",
+        "expected_answer": "VND 461,474,523 million.",
+        "relevant_keywords": [
+            "LIABILITIES",
+            "461,474,523"
+        ]
+    },
+    {
+        "id": "Q040",
+        "question": "What were current liabilities at 30 June 2023?",
+        "expected_answer": "VND 338,939,145 million.",
+        "relevant_keywords": [
+            "Current liabilities",
+            "338,939,145"
+        ]
+    },
+    {
+        "id": "Q041",
+        "question": "What were non-current liabilities at 30 June 2023?",
+        "expected_answer": "VND 122,535,378 million.",
+        "relevant_keywords": [
+            "Non-current liabilities",
+            "122,535,378"
+        ]
+    },
+    {
+        "id": "Q042",
+        "question": "What were total liabilities and owners' equity at 30 June 2023?",
+        "expected_answer": "VND 599,177,139 million.",
+        "relevant_keywords": [
+            "TOTAL LIABILITIES AND OWNERS' EQUITY",
+            "599,177,139"
+        ]
+    },
+    {
+        "id": "Q043",
+        "question": "What was owners' equity at 30 June 2023?",
+        "expected_answer": "VND 137,702,616 million.",
+        "relevant_keywords": [
+            "OWNERS' EQUITY",
+            "137,702,616"
+        ]
+    },
+    {
+        "id": "Q044",
+        "question": "What was issued share capital at 30 June 2023?",
+        "expected_answer": "VND 38,688,573 million.",
+        "relevant_keywords": [
+            "Issued share capital",
+            "38,688,573"
+        ]
+    },
+    {
+        "id": "Q045",
+        "question": "What were undistributed earnings at 30 June 2023?",
+        "expected_answer": "VND 17,279,082 million.",
+        "relevant_keywords": [
+            "Undistributed earnings",
+            "17,279,082"
+        ]
+    },
+    {
+        "id": "Q046",
+        "question": "What were non-controlling interests at 30 June 2023?",
+        "expected_answer": "VND 24,708,835 million.",
+        "relevant_keywords": [
+            "Non-controlling interests",
+            "24,708,835"
+        ]
+    },
+    {
+        "id": "Q047",
+        "question": "What was revenue from sale of goods and rendering of services for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 86,259,317 million.",
+        "relevant_keywords": [
+            "Revenue from sale of goods and rendering of services",
+            "86,259,317"
+        ]
+    },
+    {
+        "id": "Q048",
+        "question": "What was net revenue from sale of goods and rendering of services for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 86,258,602 million.",
+        "relevant_keywords": [
+            "Net revenue from sale of goods and rendering of services",
+            "86,258,602"
+        ]
+    },
+    {
+        "id": "Q049",
+        "question": "What was cost of goods sold and services rendered for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 71,173,138 million.",
+        "relevant_keywords": [
+            "Cost of goods sold and services rendered",
+            "71,173,138"
+        ]
+    },
+    {
+        "id": "Q050",
+        "question": "What was gross profit for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 15,085,464 million.",
+        "relevant_keywords": [
+            "Gross profit/(loss) from sale of goods and rendering of services",
+            "15,085,464"
+        ]
+    },
+    {
+        "id": "Q051",
+        "question": "What was finance income for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 14,255,744 million.",
+        "relevant_keywords": [
+            "Finance income",
+            "14,255,744"
+        ]
+    },
+    {
+        "id": "Q052",
+        "question": "What were finance expenses for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 8,267,175 million.",
+        "relevant_keywords": [
+            "Finance expenses",
+            "8,267,175"
+        ]
+    },
+    {
+        "id": "Q053",
+        "question": "What were selling expenses for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 5,701,782 million.",
+        "relevant_keywords": [
+            "Selling expenses",
+            "5,701,782"
+        ]
+    },
+    {
+        "id": "Q054",
+        "question": "What were general and administrative expenses for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 6,264,289 million.",
+        "relevant_keywords": [
+            "General and administrative expenses",
+            "6,264,289"
+        ]
+    },
+    {
+        "id": "Q055",
+        "question": "What was operating profit for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 8,988,768 million.",
+        "relevant_keywords": [
+            "Operating profit/(loss)",
+            "8,988,768"
+        ]
+    },
+    {
+        "id": "Q056",
+        "question": "What was accounting profit before tax for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 7,899,816 million.",
+        "relevant_keywords": [
+            "Accounting profit before tax",
+            "7,899,816"
+        ]
+    },
+    {
+        "id": "Q057",
+        "question": "What was current corporate income tax expense for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 7,361,842 million.",
+        "relevant_keywords": [
+            "Current corporate income tax expenses",
+            "7,361,842"
+        ]
+    },
+    {
+        "id": "Q058",
+        "question": "What was deferred tax income for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 451,150 million.",
+        "relevant_keywords": [
+            "Deferred tax income",
+            "451,150"
+        ]
+    },
+    {
+        "id": "Q059",
+        "question": "What was net profit after tax for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 989,124 million.",
+        "relevant_keywords": [
+            "Net profit after tax",
+            "989,124"
+        ]
+    },
+    {
+        "id": "Q060",
+        "question": "What was basic earnings per share for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 779.",
+        "relevant_keywords": [
+            "Basic earnings per share",
+            "779"
+        ]
+    },
+    {
+        "id": "Q061",
+        "question": "What was diluted earnings per share for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 657.",
+        "relevant_keywords": [
+            "Diluted earnings per share",
+            "657"
+        ]
+    },
+    {
+        "id": "Q062",
+        "question": "What was accounting profit before tax in the cash flow statement for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 7,899,816 million.",
+        "relevant_keywords": [
+            "Accounting profit before tax",
+            "7,899,816"
+        ]
+    },
+    {
+        "id": "Q063",
+        "question": "What were net cash flows used in operating activities for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 13,851,344 million used.",
+        "relevant_keywords": [
+            "Net cash flows (used in)/from operating activities",
+            "13,851,344"
+        ]
+    },
+    {
+        "id": "Q064",
+        "question": "What were net cash flows used in investing activities for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 9,987,483 million used.",
+        "relevant_keywords": [
+            "Net cash flows used in investing activities",
+            "9,987,483"
+        ]
+    },
+    {
+        "id": "Q065",
+        "question": "What were net cash flows from financing activities for the six-month period ended 30 June 2023?",
+        "expected_answer": "VND 16,128,865 million.",
+        "relevant_keywords": [
+            "Net cash flows from financing activities",
+            "16,128,865"
+        ]
+    },
+    {
+        "id": "Q066",
+        "question": "What was the net decrease in cash and cash equivalents before foreign exchange effects?",
+        "expected_answer": "VND 7,709,962 million decrease.",
+        "relevant_keywords": [
+            "Net (decrease)/increase in cash and cash equivalents for the period",
+            "7,709,962"
+        ]
+    },
+    {
+        "id": "Q067",
+        "question": "What were cash and cash equivalents at the beginning of the period?",
+        "expected_answer": "VND 26,213,302 million.",
+        "relevant_keywords": [
+            "Cash and cash equivalents at the beginning of the period",
+            "26,213,302"
+        ]
+    },
+    {
+        "id": "Q068",
+        "question": "What were cash and cash equivalents at the end of the period in the cash flow statement?",
+        "expected_answer": "VND 18,445,846 million.",
+        "relevant_keywords": [
+            "Cash and cash equivalents at the end of the period",
+            "18,445,846"
+        ]
+    },
+    {
+        "id": "Q069",
+        "question": "How does the Group define cash and cash equivalents?",
+        "expected_answer": "Cash on hand, cash in banks, cash in transit, term deposits and short-term highly liquid investments with original maturity of not more than three months and low risk of change in value.",
+        "relevant_keywords": [
+            "Cash and cash equivalents comprise cash on hand",
+            "original maturity of not more than three months"
+        ]
+    },
+    {
+        "id": "Q070",
+        "question": "What inventory costing method is used for raw materials, tools and consumables?",
+        "expected_answer": "Weighted average basis.",
+        "relevant_keywords": [
+            "Raw materials, tools and consumables",
+            "weighted average basis"
+        ]
+    },
+    {
+        "id": "Q071",
+        "question": "What inventory costing method is used for finished goods and work-in-progress?",
+        "expected_answer": "Weighted average basis.",
+        "relevant_keywords": [
+            "Finished goods and work-in-progress",
+            "weighted average basis"
+        ]
+    },
+    {
+        "id": "Q072",
+        "question": "How are receivables presented?",
+        "expected_answer": "At carrying amounts due from customers and other debtors, after provision for doubtful debts.",
+        "relevant_keywords": [
+            "Receivables are presented",
+            "provision for doubtful debts"
+        ]
+    },
+    {
+        "id": "Q073",
+        "question": "How are tangible fixed assets initially stated?",
+        "expected_answer": "At cost less accumulated depreciation.",
+        "relevant_keywords": [
+            "Tangible fixed assets are stated at cost less accumulated depreciation"
+        ]
+    },
+    {
+        "id": "Q074",
+        "question": "When is land use right treated as intangible fixed asset?",
+        "expected_answer": "When the Group has land use right certificates and the land lease contracts have effectiveness prior to 2003 with land rental paid in advance for more than 5 years.",
+        "relevant_keywords": [
+            "Land use rights",
+            "Circular No. 45/2013/TT-BTC"
+        ]
+    },
+    {
+        "id": "Q075",
+        "question": "Which amortisation method is used for tangible and intangible fixed assets?",
+        "expected_answer": "Straight-line method.",
+        "relevant_keywords": [
+            "Depreciation of tangible fixed assets",
+            "straight-line method"
+        ]
+    },
+    {
+        "id": "Q076",
+        "question": "What are borrowing costs?",
+        "expected_answer": "Interest and other costs the Group incurs in connection with the borrowing of funds.",
+        "relevant_keywords": [
+            "Borrowing costs consist of interest and other costs"
+        ]
+    },
+    {
+        "id": "Q077",
+        "question": "How are prepaid expenses recognised?",
+        "expected_answer": "As short-term or long-term prepaid expenses and amortised over the period for which the amounts are paid or benefits are generated.",
+        "relevant_keywords": [
+            "Prepaid expenses are reported",
+            "amortised over the period"
+        ]
+    },
+    {
+        "id": "Q078",
+        "question": "How are payables and accruals recognised?",
+        "expected_answer": "For amounts to be paid in the future for goods and services received, whether billed or not.",
+        "relevant_keywords": [
+            "Payables and accruals are recognised",
+            "goods and services received"
+        ]
+    },
+    {
+        "id": "Q079",
+        "question": "When is a provision recognised?",
+        "expected_answer": "When the Group has a present obligation, an outflow of resources is probable, and the obligation amount can be reliably estimated.",
+        "relevant_keywords": [
+            "Provisions are recognised",
+            "present obligation",
+            "reliably estimated"
+        ]
+    },
+    {
+        "id": "Q080",
+        "question": "How are foreign currency transactions initially recorded?",
+        "expected_answer": "At the actual transaction exchange rates.",
+        "relevant_keywords": [
+            "Foreign currency transactions",
+            "actual transaction exchange rates"
+        ]
+    },
+    {
+        "id": "Q081",
+        "question": "What is the policy for treasury shares?",
+        "expected_answer": "Own equity instruments reacquired are recognised at cost and deducted from equity.",
+        "relevant_keywords": [
+            "Treasury shares",
+            "deducted from equity"
+        ]
+    },
+    {
+        "id": "Q082",
+        "question": "When is revenue from sale of inventory properties recognised?",
+        "expected_answer": "When significant risks and rewards associated with ownership are transferred to the buyer.",
+        "relevant_keywords": [
+            "Revenue from sale of inventory properties",
+            "significant risks and rewards"
+        ]
+    },
+    {
+        "id": "Q083",
+        "question": "When is rental income from operating leases recognised?",
+        "expected_answer": "On a straight-line basis over the lease term for ongoing leases.",
+        "relevant_keywords": [
+            "Rental income arising from operating lease",
+            "straight-line basis"
+        ]
+    },
+    {
+        "id": "Q084",
+        "question": "When is revenue from sale of goods recognised?",
+        "expected_answer": "When significant risks and rewards of ownership transfer to the buyer, usually upon delivery.",
+        "relevant_keywords": [
+            "Revenue from sale of goods",
+            "upon the delivery of the goods"
+        ]
+    },
+    {
+        "id": "Q085",
+        "question": "How is interest income recognised?",
+        "expected_answer": "As interest accrues, taking into account the effective yield on the asset.",
+        "relevant_keywords": [
+            "Interest income",
+            "effective yield"
+        ]
+    },
+    {
+        "id": "Q086",
+        "question": "When is dividend income recognised?",
+        "expected_answer": "When the Group's entitlement as an investor to receive the dividend is established.",
+        "relevant_keywords": [
+            "Dividend income",
+            "entitlement as an investor"
+        ]
+    },
+    {
+        "id": "Q087",
+        "question": "How are construction contract revenues and costs recognised when reliably estimated?",
+        "expected_answer": "By reference to the stage of completion of the contract activity.",
+        "relevant_keywords": [
+            "Construction contract",
+            "stage of completion"
+        ]
+    },
+    {
+        "id": "Q088",
+        "question": "What are segment reporting components?",
+        "expected_answer": "Business segment and geographical segment.",
+        "relevant_keywords": [
+            "business segment",
+            "geographical segment"
+        ]
+    },
+    {
+        "id": "Q089",
+        "question": "What was the total balance of cash and cash equivalents in Note 5 at 30 June 2023?",
+        "expected_answer": "VND 18,445,846 million.",
+        "relevant_keywords": [
+            "Cash and cash equivalents",
+            "TOTAL",
+            "18,445,846"
+        ]
+    },
+    {
+        "id": "Q090",
+        "question": "What was cash on hand at 30 June 2023?",
+        "expected_answer": "VND 16,013 million.",
+        "relevant_keywords": [
+            "Cash on hand",
+            "16,013"
+        ]
+    },
+    {
+        "id": "Q091",
+        "question": "What was cash at banks at 30 June 2023?",
+        "expected_answer": "VND 13,421,258 million.",
+        "relevant_keywords": [
+            "Cash at banks",
+            "13,421,258"
+        ]
+    },
+    {
+        "id": "Q092",
+        "question": "What was cash in transit at 30 June 2023?",
+        "expected_answer": "VND 153,326 million.",
+        "relevant_keywords": [
+            "Cash in transit",
+            "153,326"
+        ]
+    },
+    {
+        "id": "Q093",
+        "question": "What was cash equivalents at 30 June 2023?",
+        "expected_answer": "VND 4,854,650 million.",
+        "relevant_keywords": [
+            "Cash equivalents",
+            "4,854,650"
+        ]
+    },
+    {
+        "id": "Q094",
+        "question": "What was the total of held-for-trading securities at 30 June 2023?",
+        "expected_answer": "VND 2,352,947 million carrying value.",
+        "relevant_keywords": [
+            "Held-for-trading securities",
+            "2,352,947"
+        ]
+    },
+    {
+        "id": "Q095",
+        "question": "What was the total of short-term held-to-maturity investments at 30 June 2023?",
+        "expected_answer": "VND 2,566,967 million carrying value.",
+        "relevant_keywords": [
+            "Short-term held-to-maturity investments",
+            "2,566,967"
+        ]
+    },
+    {
+        "id": "Q096",
+        "question": "What were short-term trade receivables at 30 June 2023?",
+        "expected_answer": "VND 28,129,805 million total.",
+        "relevant_keywords": [
+            "Trade receivables",
+            "Short-term",
+            "28,129,805"
+        ]
+    },
+    {
+        "id": "Q097",
+        "question": "What were short-term advances to suppliers at 30 June 2023?",
+        "expected_answer": "VND 34,245,604 million total.",
+        "relevant_keywords": [
+            "Short-term advances to suppliers",
+            "34,245,604"
+        ]
+    },
+    {
+        "id": "Q098",
+        "question": "What were short-term loan receivables at 30 June 2023?",
+        "expected_answer": "VND 4,723,802 million total.",
+        "relevant_keywords": [
+            "Short-term loan receivables",
+            "4,723,802"
+        ]
+    },
+    {
+        "id": "Q099",
+        "question": "What were long-term loan receivables at 30 June 2023?",
+        "expected_answer": "VND 5,818,300 million total.",
+        "relevant_keywords": [
+            "Long-term loan receivables",
+            "5,818,300"
+        ]
+    },
+    {
+        "id": "Q100",
+        "question": "What was the total of other receivables at 30 June 2023?",
+        "expected_answer": "VND 78,452,147 million short-term and VND 6,194,244 million long-term.",
+        "relevant_keywords": [
+            "Other receivables",
+            "78,452,147",
+            "6,194,244"
+        ]
+    },
+    {
+        "id": "Q101",
+        "question": "What was provision for doubtful debts in Note 10 at 30 June 2023?",
+        "expected_answer": "VND 600,618 million recoverable amount was shown against cost of VND 1,702,196 million.",
+        "relevant_keywords": [
+            "Bad debts",
+            "600,618",
+            "1,702,196"
+        ]
+    },
+    {
+        "id": "Q102",
+        "question": "What was the total inventory cost at 30 June 2023?",
+        "expected_answer": "VND 92,250,092 million.",
+        "relevant_keywords": [
+            "Inventories",
+            "TOTAL",
+            "92,250,092"
+        ]
+    },
+    {
+        "id": "Q103",
+        "question": "What was the inventory provision at 30 June 2023?",
+        "expected_answer": "VND 7,507,483 million.",
+        "relevant_keywords": [
+            "Inventories",
+            "Provision",
+            "7,507,483"
+        ]
+    },
+    {
+        "id": "Q104",
+        "question": "What were completed inventory properties at 30 June 2023?",
+        "expected_answer": "VND 2,259,338 million.",
+        "relevant_keywords": [
+            "Completed inventory properties",
+            "2,259,338"
+        ]
+    },
+    {
+        "id": "Q105",
+        "question": "What were inventory properties under construction at 30 June 2023?",
+        "expected_answer": "VND 59,690,891 million.",
+        "relevant_keywords": [
+            "Inventory properties under construction",
+            "59,690,891"
+        ]
+    },
+    {
+        "id": "Q106",
+        "question": "What were raw materials at 30 June 2023?",
+        "expected_answer": "VND 15,091,438 million.",
+        "relevant_keywords": [
+            "Raw materials",
+            "15,091,438"
+        ]
+    },
+    {
+        "id": "Q107",
+        "question": "What was the total of short-term prepaid expenses at 30 June 2023?",
+        "expected_answer": "VND 2,151,363 million.",
+        "relevant_keywords": [
+            "Short-term prepaid expenses",
+            "2,151,363"
+        ]
+    },
+    {
+        "id": "Q108",
+        "question": "What was the total of long-term prepaid expenses at 30 June 2023?",
+        "expected_answer": "VND 6,362,514 million.",
+        "relevant_keywords": [
+            "Long-term prepaid expenses",
+            "6,362,514"
+        ]
+    },
+    {
+        "id": "Q109",
+        "question": "What was the total of other assets at 30 June 2023?",
+        "expected_answer": "VND 15,898,591 million including short-term and long-term other assets.",
+        "relevant_keywords": [
+            "Other assets",
+            "14,866,254",
+            "1,032,337"
+        ]
+    },
+    {
+        "id": "Q110",
+        "question": "What was the net carrying amount of tangible fixed assets at 30 June 2023?",
+        "expected_answer": "VND 103,328,442 million.",
+        "relevant_keywords": [
+            "TANGIBLE FIXED ASSETS",
+            "Net carrying amount",
+            "103,328,442"
+        ]
+    },
+    {
+        "id": "Q111",
+        "question": "What was the net carrying amount of intangible fixed assets at 30 June 2023?",
+        "expected_answer": "VND 40,307,178 million.",
+        "relevant_keywords": [
+            "INTANGIBLE FIXED ASSETS",
+            "Net carrying amount",
+            "40,307,178"
+        ]
+    },
+    {
+        "id": "Q112",
+        "question": "What was the net carrying amount of investment properties at 30 June 2023?",
+        "expected_answer": "VND 39,780,799 million.",
+        "relevant_keywords": [
+            "Investment properties",
+            "Net carrying amount",
+            "39,780,799"
+        ]
+    },
+    {
+        "id": "Q113",
+        "question": "What was construction in progress at 30 June 2023?",
+        "expected_answer": "VND 101,571,105 million.",
+        "relevant_keywords": [
+            "CONSTRUCTION IN PROGRESS",
+            "Ending balance",
+            "101,571,105"
+        ]
+    },
+    {
+        "id": "Q114",
+        "question": "Which major projects were listed under construction in progress?",
+        "expected_answer": "VinFast project, Urban area project in Ho Chi Minh City, and Vinhomes Long Beach Can Gio project.",
+        "relevant_keywords": [
+            "VinFast project",
+            "Urban area project in Ho Chi Minh City",
+            "Vinhomes Long Beach Can Gio project"
+        ]
+    },
+    {
+        "id": "Q115",
+        "question": "What was the total carrying value of investments in associates and joint ventures at 30 June 2023?",
+        "expected_answer": "VND 1,486,454 million.",
+        "relevant_keywords": [
+            "Investments in associates",
+            "joint ventures",
+            "1,486,454"
+        ]
+    },
+    {
+        "id": "Q116",
+        "question": "What was the total carrying value of investments in other entities at 30 June 2023?",
+        "expected_answer": "VND 9,250,972 million.",
+        "relevant_keywords": [
+            "Investments in other entities",
+            "9,250,972"
+        ]
+    },
+    {
+        "id": "Q117",
+        "question": "What was goodwill at 30 June 2023?",
+        "expected_answer": "VND 636,024 million.",
+        "relevant_keywords": [
+            "Goodwill",
+            "636,024"
+        ]
+    },
+    {
+        "id": "Q118",
+        "question": "What were short-term trade payables at 30 June 2023?",
+        "expected_answer": "VND 38,417,685 million.",
+        "relevant_keywords": [
+            "Short-term trade payables",
+            "38,417,685"
+        ]
+    },
+    {
+        "id": "Q119",
+        "question": "What were short-term advances from customers at 30 June 2023?",
+        "expected_answer": "VND 60,718,449 million.",
+        "relevant_keywords": [
+            "Short-term advances from customers",
+            "60,718,449"
+        ]
+    },
+    {
+        "id": "Q120",
+        "question": "What were statutory obligations and receivables from the State at 30 June 2023?",
+        "expected_answer": "Payables totalled VND 25,446,888 million and receivables totalled VND 335,752 million.",
+        "relevant_keywords": [
+            "Statutory obligations and receivables from the State",
+            "25,446,888",
+            "335,752"
+        ]
+    },
+    {
+        "id": "Q121",
+        "question": "What were accrued expenses at 30 June 2023?",
+        "expected_answer": "Short-term accrued expenses were VND 47,123,888 million and long-term accrued expenses were VND 81,669 million.",
+        "relevant_keywords": [
+            "Accrued expenses",
+            "47,123,888",
+            "81,669"
+        ]
+    },
+    {
+        "id": "Q122",
+        "question": "What was unearned revenue at 30 June 2023?",
+        "expected_answer": "Short-term unearned revenue was VND 5,085,609 million and long-term unearned revenue was VND 3,545,130 million.",
+        "relevant_keywords": [
+            "Unearned revenue",
+            "5,085,609",
+            "3,545,130"
+        ]
+    },
+    {
+        "id": "Q123",
+        "question": "What were other payables at 30 June 2023?",
+        "expected_answer": "Short-term other payables were VND 71,485,680 million and long-term other payables were VND 11,359,678 million.",
+        "relevant_keywords": [
+            "Other payables",
+            "71,485,680",
+            "11,359,678"
+        ]
+    },
+    {
+        "id": "Q124",
+        "question": "What were total loans and debts at 30 June 2023?",
+        "expected_answer": "VND 177,917,960 million.",
+        "relevant_keywords": [
+            "LOANS AND DEBTS",
+            "TOTAL",
+            "177,917,960"
+        ]
+    },
+    {
+        "id": "Q125",
+        "question": "What were short-term loans and debts at 30 June 2023?",
+        "expected_answer": "VND 86,956,653 million.",
+        "relevant_keywords": [
+            "Short-term loans",
+            "Current portion of long-term debts",
+            "86,956,653"
+        ]
+    },
+    {
+        "id": "Q126",
+        "question": "What were long-term loans and debts at 30 June 2023?",
+        "expected_answer": "VND 90,961,307 million.",
+        "relevant_keywords": [
+            "Long-term loans and debts",
+            "90,961,307"
+        ]
+    },
+    {
+        "id": "Q127",
+        "question": "What were exchangeable bonds at 30 June 2023?",
+        "expected_answer": "VND 9,892,369 million liability component at end of period.",
+        "relevant_keywords": [
+            "Exchangeable bonds",
+            "Liability component at the end of the period",
+            "9,892,369"
+        ]
+    },
+    {
+        "id": "Q128",
+        "question": "Which subsidiary was acquired under Nguyen Phu Trading and Investment Development JSC?",
+        "expected_answer": "Nguyen Phu JSC was acquired.",
+        "relevant_keywords": [
+            "Acquisition of Nguyen Phu Trading",
+            "Nguyen Phu JSC"
+        ]
+    },
+    {
+        "id": "Q129",
+        "question": "Which company was acquired under Center Point Development JSC?",
+        "expected_answer": "Ca Tam JSC was acquired.",
+        "relevant_keywords": [
+            "Center Point Development",
+            "Ca Tam JSC"
+        ]
+    },
+    {
+        "id": "Q130",
+        "question": "Which company was acquired under High Thang Cong Invest JSC?",
+        "expected_answer": "High Thanh Cong JSC was acquired.",
+        "relevant_keywords": [
+            "High Thanh Cong Invest",
+            "High Thanh Cong JSC"
+        ]
+    },
+    {
+        "id": "Q131",
+        "question": "Which subsidiary was disposed in June 2023?",
+        "expected_answer": "Vinpearl Thanh Hoa JSC.",
+        "relevant_keywords": [
+            "Disposal of Vinpearl Thanh Hoa JSC"
+        ]
+    },
+    {
+        "id": "Q132",
+        "question": "Which subsidiary was disposed in June 2023 as Vinpearl Landmark 81 JSC?",
+        "expected_answer": "Vinpearl Landmark 81 JSC.",
+        "relevant_keywords": [
+            "Disposal of Vinpearl Landmark 81 JSC"
+        ]
+    },
+    {
+        "id": "Q133",
+        "question": "Which company did the Group dispose in March 2023?",
+        "expected_answer": "Truong Loc Real Estate Development and Investment LLC.",
+        "relevant_keywords": [
+            "Disposal of Truong Loc Real Estate Development and Investment LLC"
+        ]
+    },
+    {
+        "id": "Q134",
+        "question": "Which company did the Group dispose in March 2023 after selling 89.9 percent voting shares?",
+        "expected_answer": "Phat Dat Real Estate Development and Investment LLC.",
+        "relevant_keywords": [
+            "Disposal of Phat Dat Real Estate Development and Investment LLC",
+            "89.9% voting shares"
+        ]
+    },
+    {
+        "id": "Q135",
+        "question": "What is the weather forecast in Hanoi tomorrow?",
+        "expected_answer": "This question is outside the scope of the financial statements.",
+        "relevant_keywords": []
+    },
+    {
+        "id": "Q136",
+        "question": "How should I implement a Node.js chatbot API endpoint?",
+        "expected_answer": "This question is outside the scope of the financial statements.",
+        "relevant_keywords": []
+    },
+    {
+        "id": "Q137",
+        "question": "What is the best laptop for data engineering?",
+        "expected_answer": "This question is outside the scope of the financial statements.",
+        "relevant_keywords": []
+    },
+    {
+        "id": "Q138",
+        "question": "Who won the football match yesterday?",
+        "expected_answer": "This question is outside the scope of the financial statements.",
+        "relevant_keywords": []
+    },
+    {
+        "id": "Q139",
+        "question": "Báo cáo tài chính này là của công ty nào?",
+        "expected_answer": "Vingroup Joint Stock Company.",
+        "relevant_keywords": [
+            "Vingroup Joint Stock Company"
+        ]
+    },
+    {
+        "id": "Q140",
+        "question": "Kỳ báo cáo kết thúc vào ngày nào?",
+        "expected_answer": "30 June 2023.",
+        "relevant_keywords": [
+            "six-month period ended 30 June 2023"
+        ]
+    },
+    {
+        "id": "Q141",
+        "question": "Tổng tài sản tại ngày 30/06/2023 là bao nhiêu?",
+        "expected_answer": "VND 599,177,139 million.",
+        "relevant_keywords": [
+            "TOTAL ASSETS",
+            "599,177,139"
+        ]
+    },
+    {
+        "id": "Q142",
+        "question": "Doanh thu thuần 6 tháng đầu năm 2023 là bao nhiêu?",
+        "expected_answer": "VND 86,258,602 million.",
+        "relevant_keywords": [
+            "Net revenue from sale of goods and rendering of services",
+            "86,258,602"
+        ]
+    },
+    {
+        "id": "Q143",
+        "question": "Lợi nhuận sau thuế trong kỳ là bao nhiêu?",
+        "expected_answer": "VND 989,124 million.",
+        "relevant_keywords": [
+            "Net profit after tax",
+            "989,124"
+        ]
+    },
+    {
+        "id": "Q144",
+        "question": "Tiền và tương đương tiền cuối kỳ là bao nhiêu?",
+        "expected_answer": "VND 18,445,846 million.",
+        "relevant_keywords": [
+            "Cash and cash equivalents at the end of the period",
+            "18,445,846"
+        ]
+    },
+    {
+        "id": "Q145",
+        "question": "Ai là đơn vị kiểm toán/soát xét báo cáo?",
+        "expected_answer": "Ernst & Young Vietnam Limited.",
+        "relevant_keywords": [
+            "Ernst & Young Vietnam Limited"
+        ]
+    },
+    {
+        "id": "Q146",
+        "question": "Cổ phiếu của công ty niêm yết trên sàn nào?",
+        "expected_answer": "Ho Chi Minh City Stock Exchange (HOSE).",
+        "relevant_keywords": [
+            "Ho Chi Minh City Stock Exchange",
+            "HOSE"
+        ]
+    },
+    {
+        "id": "Q147",
+        "question": "Mã chứng khoán của công ty là gì?",
+        "expected_answer": "VIC.",
+        "relevant_keywords": [
+            "stock symbol VIC",
+            "VIC"
+        ]
+    },
+    {
+        "id": "Q148",
+        "question": "Chủ tịch Hội đồng quản trị là ai?",
+        "expected_answer": "Mr. Pham Nhat Vuong.",
+        "relevant_keywords": [
+            "Pham Nhat Vuong",
+            "Chairman"
+        ]
+    }
+]

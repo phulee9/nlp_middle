@@ -3,7 +3,7 @@ const modes = [
   { value: 'embedding', label: 'Embedding', desc: 'Semantic search' },
   { value: 'hybrid', label: 'Hybrid', desc: 'BM25 + Embedding' },
   { value: 'hybrid_rerank', label: 'Hybrid + Rerank', desc: 'With reranker' },
-  { value: 'full', label: 'Full Pipeline', desc: 'Best accuracy' },
+  // { value: 'full', label: 'Full Pipeline', desc: 'Best accuracy' },
 ];
 
 export default function ModeSelector({ value, onChange }) {

@@ -1,26 +1,3 @@
-"""
-hybrid.py — Hybrid retrieval: BM25 (sparse) + Embedding (dense).
-
-Why hybrid?
-  BM25 is strong for exact keyword matching (IDs, names, codes).
-  Dense retrieval is strong for semantic / paraphrase matching.
-  Neither alone is optimal.  Combining them yields higher Recall@k
-  than either method alone, which directly improves the quality of
-  the context fed to the LLM.
-
-Combination formula (Reciprocal Rank Fusion alternative here is
-Min-Max normalisation + weighted sum):
-
-    hybrid_score = α · bm25_norm + (1 − α) · cosine_norm
-
-where:
-    bm25_norm   = (bm25 − min) / (max − min)   ∈ [0, 1]
-    cosine_norm = (cos  − min) / (max − min)   ∈ [0, 1]
-    α           = 0.5 by default (balanced); tune per domain
-
-Setting α = 1.0 → pure BM25; α = 0.0 → pure semantic.
-"""
-
 import logging
 import numpy as np
 from typing import List, Dict
@@ -32,10 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 def _minmax_normalize(arr: np.ndarray) -> np.ndarray:
-    """
-    Map values to [0, 1] via Min-Max normalisation.
-    If all values are equal (e.g. all zero), return zeros.
-    """
+
     lo, hi = arr.min(), arr.max()
     if hi - lo < 1e-10:
         return np.zeros_like(arr)
@@ -43,13 +17,6 @@ def _minmax_normalize(arr: np.ndarray) -> np.ndarray:
 
 
 class HybridRetriever:
-    """
-    Fuse BM25 and dense scores into a single ranked list.
-
-    Usage:
-        retriever = HybridRetriever(corpus, bm25_retriever, emb_retriever)
-        results   = retriever.search("query", top_k=5, alpha=0.5)
-    """
 
     def __init__(
         self,
@@ -70,17 +37,7 @@ class HybridRetriever:
         top_k: int = 5,
         alpha: float = 0.5,
     ) -> List[Dict]:
-        """
-        Hybrid search: normalise + fuse BM25 and cosine scores.
 
-        Args:
-            query:  User question.
-            top_k:  Number of chunks to return.
-            alpha:  Weight for BM25 (0.0 = pure dense, 1.0 = pure BM25).
-
-        Returns:
-            List of chunk dicts enriched with all intermediate scores.
-        """
         # ── Step 1: Get raw scores for ALL chunks ─────────────────────────
         bm25_scores   = self.bm25.get_all_scores(query)       # (N,)
         cosine_scores = self.semantic.get_all_scores(query)   # (N,)

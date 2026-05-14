@@ -24,7 +24,7 @@ function runPythonRag({ pdfPath, question, mode, topK }) {
       '-m', 'rag.cli',
       '--pdf', pdfPath,
       '--question', question,
-      '--mode', mode || 'full',
+      '--mode', mode || 'hybrid_rerank',
       '--top-k', String(topK || 5),
     ];
 
@@ -34,7 +34,7 @@ function runPythonRag({ pdfPath, question, mode, topK }) {
         ...process.env,
         PYTHONIOENCODING: 'utf-8',
         PYTHONUTF8: '1',
-        TESSDATA_PREFIX: 'C:\\Users\\train\\miniconda3\\envs\\nlp_env\\share\\tessdata',
+        TESSDATA_PREFIX: 'C:\\Users\\train\\miniconda3\\envs\\ttt_env\\share\\tessdata',
       },
       shell: false,
     });
@@ -65,7 +65,7 @@ function runPythonRag({ pdfPath, question, mode, topK }) {
 
 async function askQuestion(req, res, next) {
   try {
-    const { filename, question, mode = 'full', topK = 5 } = req.body;
+    const { filename, question, mode = 'hybrid_rerank', topK = 5 } = req.body;
     if (!filename) return res.status(400).json({ success: false, error: 'filename is required' });
     if (!question) return res.status(400).json({ success: false, error: 'question is required' });
 

@@ -1,13 +1,3 @@
-"""
-Run retrieval + answer evaluation across all RAG modes.
-
-Usage:
-  python -m evaluation.run_evaluation --pdf uploads/sample.pdf --questions evaluation/questions.json
-
-Note:
-  Fill `relevant_chunks` in questions.json with chunk IDs printed in sample_answers.md
-  to get meaningful retrieval metrics.
-"""
 from __future__ import annotations
 
 import argparse
@@ -23,7 +13,7 @@ from rag.pipeline import RAGPipeline
 
 load_dotenv()
 
-MODES = ["bm25", "embedding", "hybrid", "hybrid_rerank", "full"]
+MODES = ["bm25", "embedding", "hybrid", "hybrid_rerank"]
 
 
 def load_questions(path: str) -> List[Dict]:

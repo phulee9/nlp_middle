@@ -1,81 +1,106 @@
-"""
-pipeline.py — Main orchestration for the Hybrid RAG system.
 
-Supported modes:
-  - bm25
-  - embedding
-  - hybrid
-  - hybrid_rerank
-  - full
-
-The full pipeline is:
-User query → Multi-query → Hybrid retrieval → Rerank → Context compression
-→ Context reorder → Groq LLM answer generation.
-"""
 
 from __future__ import annotations
-import pickle
+
 import hashlib
-import numpy as np
 import logging
 import os
+import pickle
 from pathlib import Path
 from typing import Dict, List, Optional
 
 from dotenv import load_dotenv
 
-from rag.pdf_loader import load_pdf
-from rag.chunker import split_into_chunks
 from rag.bm25 import BM25Retriever
+from rag.chunker import split_into_chunks
 from rag.embedding import EmbeddingRetriever
-from rag.hybrid import HybridRetriever
-from rag.reranker import Reranker
-from rag.multi_query import generate_queries, multi_query_retrieve
-from rag.context_processing import ContextCompressor, reorder_chunks, build_context
 from rag.groq_llm import GroqLLM
+from rag.hybrid import HybridRetriever
+from rag.pdf_loader import load_pdf
+from rag.reranker import Reranker
 
 load_dotenv()
 logger = logging.getLogger(__name__)
 
+
+# System prompt — hướng dẫn LLM cách trả lời
 ANSWER_SYSTEM_PROMPT = """
-You are a careful PDF question-answering assistant.
+You are an assistant that answers questions based on the content of a PDF.
 
-Rules:
-- Answer ONLY using the provided context.
-- If multiple numeric values are present, you MUST:
-  1. Extract all relevant values
-  2. Perform simple calculations if needed (e.g., sum)
-  3. Provide both individual values AND final total if applicable
+## Mandatory Rules
 
-- Be concise, factual, and cite passages as [Passage N].
-- If the context does not contain the answer, say you do not know.
-- Format answers using clear bullet points.
-- Put calculations on separate lines.
-- Do not write "To answer the question..."
-- Do not double-count duplicated values if they refer to the same asset/category.
-- If the same amount appears in multiple passages, count it only once.
-- Preserve the unit exactly as written, e.g. "VND1,768 billion" must remain billion.
+1. ONLY use information from the provided passages. Do not invent anything.
+2. If the context does not contain an answer, simply say: "I could not find this information in the document."
+
+## REQUIRED Answer Format — always follow this structure, do not change:
+
+- [Point 1] [Passage X]
+- [Point 2] [Passage X]
+- [Point 3] [Passage X]
+
+**In conclusion:** [A short, one-sentence conclusion]
+
+## Formatting Rules
+
+- Lead sentence: 1 sentence.
+- Each bullet point: 1 unique point, ending with [Passage N] corresponding to the passage.
+- Number of bullet points: minimum 2, maximum 5.
+- Conclusion: exactly 1 sentence, starting with "**In conclusion:**".
+- Do not begin any bullet with "According to [Passage N],".
+- Do not repeat the same point across different bullet points.
+- Do not add anything beyond the structure above.
 """
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Cache helpers
+# ──────────────────────────────────────────────────────────────────────────────
+
 def _file_fingerprint(pdf_path: str, embedding_model: str, chunk_size: int, chunk_overlap: int) -> str:
+
     path = Path(pdf_path)
     stat = path.stat()
-
-    raw = f"{path.resolve()}|{stat.st_size}|{stat.st_mtime}|{embedding_model}|{chunk_size}|{chunk_overlap}"
-    return hashlib.md5(raw.encode("utf-8")).hexdigest()
+    raw = (
+        f"{path.resolve()}|{stat.st_size}|{stat.st_mtime}"
+        f"|{embedding_model}|{chunk_size}|{chunk_overlap}"
+    )
+    return hashlib.md5(raw.encode()).hexdigest()
 
 
 def _cache_path(pdf_path: str, embedding_model: str, chunk_size: int, chunk_overlap: int) -> Path:
+
     cache_dir = Path(".cache")
     cache_dir.mkdir(exist_ok=True)
-
     pdf_name = Path(pdf_path).stem.replace(" ", "_")
     fp = _file_fingerprint(pdf_path, embedding_model, chunk_size, chunk_overlap)
-
     return cache_dir / f"{pdf_name}_{fp}.pkl"
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Context builder
+# ──────────────────────────────────────────────────────────────────────────────
+
+def build_context(chunks: List[Dict], max_chars: int = 4000) -> str:
+    parts = []
+    total = 0
+    for i, chunk in enumerate(chunks, start=1):
+        header = f"[Passage {i} | source: {chunk.get('source', 'unknown')}]"
+        entry = f"{header}\n{chunk['text']}"
+        if total + len(entry) > max_chars:
+            remaining = max_chars - total
+            if remaining > 50:
+                parts.append(entry[:remaining] + "…")
+            break
+        parts.append(entry)
+        total += len(entry) + 2   # +2 cho "\n\n" separator
+    return "\n\n".join(parts)
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# RAGPipeline
+# ──────────────────────────────────────────────────────────────────────────────
+
 class RAGPipeline:
-    """Build indexes for one PDF and answer questions using selectable RAG modes."""
 
     def __init__(
         self,
@@ -86,36 +111,38 @@ class RAGPipeline:
         reranker_model: Optional[str] = None,
         device: Optional[str] = None,
     ):
+
         self.pdf_path = str(pdf_path)
         self.source_name = Path(pdf_path).name
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
-        self.embedding_model = embedding_model or os.getenv("EMBEDDING_MODEL", "BAAI/bge-m3")
-        self.reranker_model = reranker_model or os.getenv("RERANKER_MODEL", "BAAI/bge-reranker-base")
+        self.embedding_model = embedding_model or os.getenv(
+            "EMBEDDING_MODEL", "all-MiniLM-L6-v2"
+        )
+        self.reranker_model = reranker_model or os.getenv(
+            "RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        )
         self.device = device or os.getenv("RAG_DEVICE") or None
 
-        logger.info("Loading PDF and building indexes: %s", self.pdf_path)
+        logger.info("Initializing RAG pipeline for: %s", self.pdf_path)
 
+        cached_bm25 = None
+
+        # ── Bước 1: Load chunks + embeddings (từ cache nếu có) ───────────────
         cache_file = _cache_path(
-            self.pdf_path,
-            self.embedding_model,
-            self.chunk_size,
-            self.chunk_overlap,
+            self.pdf_path, self.embedding_model, self.chunk_size, self.chunk_overlap
         )
-
         cached_embeddings = None
 
         if cache_file.exists():
-            logger.info("Loading RAG cache from: %s", cache_file)
+            logger.info("Cache found → loading from: %s", cache_file)
             with open(cache_file, "rb") as f:
                 cache = pickle.load(f)
-
             self.chunks = cache["chunks"]
             cached_embeddings = cache["embeddings"]
-
+            cached_bm25 = cache.get("bm25")
         else:
-            logger.info("No cache found. OCR/chunk/embed will run once.")
-
+            logger.info("No cache → reading PDF and chunking...")
             text = load_pdf(self.pdf_path)
             self.chunks = split_into_chunks(
                 text,
@@ -127,25 +154,59 @@ class RAGPipeline:
         if not self.chunks:
             raise ValueError("No chunks were created from the PDF.")
 
-        self.llm = GroqLLM()
-        self.bm25 = BM25Retriever(self.chunks)
+        logger.info("Total chunks: %d", len(self.chunks))
 
+        # ── Bước 2: Khởi tạo các thành phần ─────────────────────────────────
+
+        # LLM để sinh câu trả lời cuối cùng
+        self.llm = GroqLLM()
+
+        # BM25 — sparse retrieval (inverted index, keyword-based)
+        # Luôn build lại vì rất nhanh (< 1s)
+        # self.bm25 = BM25Retriever(self.chunks)
+        if cached_bm25 is not None:
+            logger.info("Using cached BM25 index")
+            self.bm25 = cached_bm25  # ← dùng lại, không build lại
+        else:
+            self.bm25 = BM25Retriever(self.chunks)
+
+        # Embedding — dense retrieval (semantic vector search)
+        # Dùng cache nếu có, tránh encode lại toàn bộ corpus
         self.embedding = EmbeddingRetriever(
             self.chunks,
             model_name=self.embedding_model,
-            backend="auto",
-            device=self.device,
             precomputed_embeddings=cached_embeddings,
         )
 
-        # Nếu chưa có cache thì lưu lại sau khi embedding xong
-        if cached_embeddings is None:
-            logger.info("Saving RAG cache to: %s", cache_file)
+        # Hybrid — kết hợp BM25 + Embedding
+        self.hybrid = HybridRetriever(self.chunks, self.bm25, self.embedding)
+
+        # Reranker — cross-encoder để rerank candidates từ hybrid
+        self.reranker = Reranker(model_name=self.reranker_model, device=self.device)
+
+        # ── Bước 3: Lưu cache nếu chưa có ────────────────────────────────────
+        # if cached_embeddings is None:
+        #     logger.info("Saving cache to: %s", cache_file)
+        #     with open(cache_file, "wb") as f:
+        #         pickle.dump(
+        #             {
+        #                 "chunks": self.chunks,
+        #                 "embeddings": self.embedding.embeddings,
+        #                 "embedding_model": self.embedding_model,
+        #                 "chunk_size": self.chunk_size,
+        #                 "chunk_overlap": self.chunk_overlap,
+        #                 "source": self.source_name,
+        #             },
+        #             f,
+        #         )
+        if cached_embeddings is None or cached_bm25 is None:
+            logger.info("Saving cache to: %s", cache_file)
             with open(cache_file, "wb") as f:
                 pickle.dump(
                     {
                         "chunks": self.chunks,
                         "embeddings": self.embedding.embeddings,
+                        "bm25": self.bm25,        # ← thêm
                         "embedding_model": self.embedding_model,
                         "chunk_size": self.chunk_size,
                         "chunk_overlap": self.chunk_overlap,
@@ -154,91 +215,117 @@ class RAGPipeline:
                     f,
                 )
 
-        # 3 dòng này PHẢI nằm ngoài if
-        self.hybrid = HybridRetriever(self.chunks, self.bm25, self.embedding)
-        self.reranker = Reranker(model_name=self.reranker_model, backend="st", device=self.device)
-        self.compressor = ContextCompressor(self.llm)
+    # ── Public API ────────────────────────────────────────────────────────────
 
-    def answer(self, question: str, mode: str = "full", top_k: int = 5) -> Dict:
-        """Run selected mode and return answer + contexts."""
-        mode = (mode or "full").lower().strip()
+    def answer(self, question: str, mode: str = "hybrid_rerank", top_k: int = 5) -> Dict:
+
         retrieved = self.retrieve(question, mode=mode, top_k=top_k)
+        context = build_context(retrieved, max_chars=4000)
 
-        final_chunks = retrieved
-        if mode == "full":
-            final_chunks = self.compressor.compress(question, retrieved, max_chunks=min(3, top_k))
-            final_chunks = reorder_chunks(final_chunks)
-
-        context = build_context(final_chunks, max_chars=5000)
         user_message = f"Context:\n{context}\n\nQuestion: {question}"
+        # answer = self.llm.generate(
+        #     system_prompt=ANSWER_SYSTEM_PROMPT,
+        #     user_message=user_message,
+        #     temperature=0.2,
+        #     max_tokens=1024,
+        # )
+        context_length = len(context)
+        if context_length < 1000:
+            max_tokens = 512     # context ngắn → câu hỏi đơn giản
+        elif context_length < 2500:
+            max_tokens = 768     # context trung bình
+        else:
+            max_tokens = 1024    # context dài, câu hỏi phức tạp
+
         answer = self.llm.generate(
             system_prompt=ANSWER_SYSTEM_PROMPT,
             user_message=user_message,
             temperature=0.2,
-            max_tokens=1024,
+            max_tokens=max_tokens,
         )
 
         return {
             "question": question,
             "mode": mode,
             "answer": answer,
-            "contexts": self._public_chunks(final_chunks),
+            "contexts": self._public_chunks(retrieved),
             "num_chunks_indexed": len(self.chunks),
             "source": self.source_name,
         }
 
-    def retrieve(self, question: str, mode: str = "full", top_k: int = 5) -> List[Dict]:
-        """Return retrieved chunks for a selected method."""
-        mode = (mode or "full").lower().strip()
+    def retrieve(self, question: str, mode: str = "hybrid_rerank", top_k: int = 5) -> List[Dict]:
+
+        mode = (mode or "hybrid_rerank").lower().strip()
 
         if mode == "bm25":
+            # Chỉ dùng BM25 — nhanh, tốt cho keyword/số liệu cụ thể
             return self.bm25.search(question, top_k=top_k)
 
         if mode == "embedding":
+            # Chỉ dùng embedding — tốt cho câu hỏi ngữ nghĩa / paraphrase
             return self.embedding.search(question, top_k=top_k)
 
         if mode == "hybrid":
+            # Kết hợp BM25 + embedding, không rerank
             return self.hybrid.search(question, top_k=top_k, alpha=0.5)
 
+        # if mode == "hybrid_rerank":
+        #     # Bước 1: Hybrid lấy nhiều candidates hơn cần thiết
+        #     n_candidates = max(top_k * 3, 15)   # ví dụ top_k=5 → lấy 15 candidates
+        #     candidates = self.hybrid.search(question, top_k=n_candidates, alpha=0.5)
+        #     # Bước 2: Reranker chọn top_k tốt nhất từ candidates
+        #     return self.reranker.rerank(question, candidates, top_k=top_k)
         if mode == "hybrid_rerank":
-            candidates = self.hybrid.search(question, top_k=max(top_k * 3, 10), alpha=0.5)
+            corpus_size = len(self.chunks)
+
+            if corpus_size < 100:
+                n_candidates = max(top_k * 2, 8)     # corpus nhỏ, rerank ít thôi
+            elif corpus_size < 500:
+                n_candidates = max(top_k * 2, 10)    # mặc định hợp lý
+            else:
+                n_candidates = max(top_k * 3, 15)    # corpus lớn, cần nhiều candidates hơn
+
+            logger.info(
+                "hybrid_rerank: corpus=%d, n_candidates=%d, top_k=%d",
+                corpus_size, n_candidates, top_k,
+            )
+            candidates = self.hybrid.search(question, top_k=n_candidates, alpha=0.5)
             return self.reranker.rerank(question, candidates, top_k=top_k)
 
-        if mode == "full":
-            def llm_generate_fn(prompt: str, system: str) -> str:
-                return self.llm.generate(system_prompt=system, user_message=prompt, temperature=0.0)
-
-            queries = generate_queries(question, llm_generate_fn, n=3)
-
-            def retrieve_fn(q: str) -> List[Dict]:
-                return self.hybrid.search(q, top_k=max(top_k * 3, 10), alpha=0.5)
-
-            candidates = multi_query_retrieve(queries, retrieve_fn, top_k=max(top_k * 3, 10))
-            return self.reranker.rerank(question, candidates, top_k=top_k)
-
-        raise ValueError(f"Unknown mode: {mode}")
+        raise ValueError(
+            f"Unknown mode: '{mode}'. Supported: bm25, embedding, hybrid, hybrid_rerank"
+        )
 
     @staticmethod
     def _public_chunks(chunks: List[Dict]) -> List[Dict]:
+
         keep = [
-            "id", "source", "text", "char_start", "char_end", "retrieval_rank",
-            "bm25_score", "bm25_raw", "bm25_norm", "cosine_score", "cosine_norm",
-            "hybrid_score", "reranker_score", "alpha",
+            "id", "source", "text", "char_start", "char_end",
+            "retrieval_rank",
+            "bm25_score", "bm25_raw", "bm25_norm",
+            "cosine_score", "cosine_norm",
+            "hybrid_score", "alpha",
+            "reranker_score",
         ]
         return [{k: c[k] for k in keep if k in c} for c in chunks]
 
+
+# ── Chạy trực tiếp từ terminal ────────────────────────────────────────────────
 if __name__ == "__main__":
     import argparse
     import json
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--pdf", required=True)
-    parser.add_argument("--question", required=True)
-    parser.add_argument("--mode", default="full")
-
+    parser = argparse.ArgumentParser(description="Hybrid RAG Pipeline")
+    parser.add_argument("--pdf", required=True, help="Đường dẫn file PDF")
+    parser.add_argument("--question", required=True, help="Câu hỏi")
+    parser.add_argument(
+        "--mode", default="hybrid_rerank",
+        choices=["bm25", "embedding", "hybrid", "hybrid_rerank"],
+        help="Phương pháp truy xuất"
+    )
+    parser.add_argument("--top-k", type=int, default=5, help="Số chunk lấy về")
     args = parser.parse_args()
 
     pipeline = RAGPipeline(args.pdf)
-    result = pipeline.answer(args.question, mode=args.mode)
-
+    result = pipeline.answer(args.question, mode=args.mode, top_k=args.top_k)
     print(json.dumps(result, ensure_ascii=False, indent=2))

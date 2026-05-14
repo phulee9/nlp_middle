@@ -1,5 +1,3 @@
-"""CLI bridge used by Node.js backend and by developers."""
-
 from __future__ import annotations
 
 import argparse
@@ -18,14 +16,18 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Hybrid RAG CLI")
-    parser.add_argument("--pdf", required=True, help="Path to PDF file")
-    parser.add_argument("--question", required=True, help="User question")
-    parser.add_argument("--mode", default="full", choices=["bm25", "embedding", "hybrid", "hybrid_rerank", "full"])
-    parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--pdf", required=True, help="Đường dẫn file PDF")
+    parser.add_argument("--question", required=True, help="Câu hỏi")
+    parser.add_argument(
+        "--mode", default="hybrid_rerank",
+        choices=["bm25", "embedding", "hybrid", "hybrid_rerank"],
+        help="Phương pháp truy xuất"
+    )
+    parser.add_argument("--top-k", type=int, default=5, help="Số chunk lấy về")
     args = parser.parse_args()
 
     if not Path(args.pdf).exists():
-        print(json.dumps({"error": f"PDF not found: {args.pdf}"}, ensure_ascii=False), file=sys.stdout)
+        print(json.dumps({"error": f"PDF not found: {args.pdf}"}, ensure_ascii=False))
         return 2
 
     try:
@@ -35,7 +37,7 @@ def main() -> int:
         return 0
     except Exception as exc:
         logging.exception("RAG CLI failed")
-        print(json.dumps({"error": str(exc)}, ensure_ascii=False), file=sys.stdout)
+        print(json.dumps({"error": str(exc)}, ensure_ascii=False))
         return 1
 
 

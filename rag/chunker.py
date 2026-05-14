@@ -1,17 +1,3 @@
-"""
-chunker.py — Split long document text into overlapping chunks.
-
-Why chunk?
-  LLMs have a limited context window (e.g. 4 096–32 768 tokens).
-  A full PDF can be hundreds of thousands of tokens, so we split it
-  into smaller pieces and only pass the most relevant ones to the LLM.
-
-Why overlap?
-  Information at chunk boundaries would be lost without overlap.
-  With overlap = 64 chars, consecutive chunks share a "bridge" of text
-  that prevents cutting a sentence mid-thought.
-"""
-
 import logging
 from pathlib import Path
 from typing import List, Dict
@@ -29,25 +15,7 @@ def split_into_chunks(
     chunk_overlap: int = 64,
     source: str = "unknown",
 ) -> List[Dict]:
-    """
-    Split `text` into overlapping character-level chunks.
 
-    Args:
-        text:          Cleaned document text.
-        chunk_size:    Maximum characters per chunk.
-        chunk_overlap: Characters shared between consecutive chunks.
-        source:        Document identifier stored in each chunk's metadata.
-
-    Returns:
-        List of chunk dicts:
-            {
-                "id":         "<source>_chunk_<index>",
-                "text":       "<chunk text>",
-                "source":     "<source>",
-                "char_start": <int>,
-                "char_end":   <int>,
-            }
-    """
     if chunk_overlap >= chunk_size:
         raise ValueError("chunk_overlap must be smaller than chunk_size")
 
@@ -85,17 +53,7 @@ def build_corpus(
     chunk_size: int = 512,
     chunk_overlap: int = 64,
 ) -> List[Dict]:
-    """
-    Build a corpus from multiple PDF texts.
 
-    Args:
-        pdf_texts:     Mapping from document name → cleaned text.
-        chunk_size:    Characters per chunk.
-        chunk_overlap: Overlap between chunks.
-
-    Returns:
-        Flat list of chunk dicts across all documents.
-    """
     all_chunks: List[Dict] = []
     for name, text in pdf_texts.items():
         source = Path(name).stem if "." in name else name

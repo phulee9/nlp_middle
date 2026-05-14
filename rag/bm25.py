@@ -1,30 +1,3 @@
-"""
-bm25.py — BM25 sparse retrieval.
-
-What is BM25?
-  BM25 (Best Match 25) is a probabilistic ranking function used in
-  information retrieval since the 1990s.  It extends TF-IDF by:
-    • Saturating term frequency (so one word repeated 100× doesn't
-      dominate — controlled by parameter k1).
-    • Normalising for document length (long docs are penalised —
-      controlled by parameter b).
-
-  Score for document D given query Q with terms q₁…qₙ:
-      score(D, Q) = Σᵢ IDF(qᵢ) · (tf(qᵢ,D) · (k1+1)) /
-                       (tf(qᵢ,D) + k1 · (1 − b + b · |D|/avgdl))
-
-  Default params (BM25Okapi): k1=1.5, b=0.75.
-
-Strengths:
-  ✔ Very fast to build and query.
-  ✔ Excellent for exact keyword / code / ID matching.
-  ✔ No GPU needed.
-
-Weaknesses:
-  ✗ Bag-of-words: ignores word order and semantics.
-  ✗ Cannot handle synonyms or paraphrases.
-"""
-
 import re
 import logging
 import numpy as np
@@ -40,10 +13,7 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────────────────────
 
 def _tokenize(text: str) -> List[str]:
-    """
-    Lowercase and split on non-alphanumeric characters.
-    Production tip: add stopword removal + stemming for higher precision.
-    """
+
     return [tok for tok in re.split(r"[^a-zA-Z0-9]+", text.lower()) if tok]
 
 
@@ -52,21 +22,10 @@ def _tokenize(text: str) -> List[str]:
 # ──────────────────────────────────────────────────────────────────────────────
 
 class BM25Retriever:
-    """
-    Thin wrapper around rank_bm25.BM25Okapi with a simple search interface.
 
-    Usage:
-        retriever = BM25Retriever(corpus)
-        results = retriever.search("your query", top_k=5)
-    """
 
     def __init__(self, corpus: List[Dict]):
-        """
-        Build the BM25 inverted index.
 
-        Args:
-            corpus: List of chunk dicts with at least a "text" key.
-        """
         self.corpus = corpus
 
         # Tokenise every chunk — this list mirrors the corpus order
@@ -80,14 +39,7 @@ class BM25Retriever:
     # ── Search ───────────────────────────────────────────────────────────────
 
     def search(self, query: str, top_k: int = 5) -> List[Dict]:
-        """
-        Retrieve top_k most relevant chunks for `query`.
 
-        Returns:
-            List of chunk dicts enriched with:
-                "bm25_score"     — raw BM25 score (higher is better)
-                "retrieval_rank" — 1-indexed rank in this result list
-        """
         query_tokens = _tokenize(query)
 
         # get_scores returns an ndarray of shape (N,) with BM25 scores
@@ -106,5 +58,4 @@ class BM25Retriever:
         return results
 
     def get_all_scores(self, query: str) -> np.ndarray:
-        """Return raw BM25 scores for ALL corpus chunks (needed for hybrid)."""
         return self.bm25.get_scores(_tokenize(query))

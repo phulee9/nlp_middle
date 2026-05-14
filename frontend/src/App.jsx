@@ -7,7 +7,7 @@ import { uploadPdf, askQuestion } from './services/api.js';
 
 export default function App() {
   const [fileInfo, setFileInfo] = useState(null);
-  const [mode, setMode] = useState('full');
+  const [mode, setMode] = useState('hybrid');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);

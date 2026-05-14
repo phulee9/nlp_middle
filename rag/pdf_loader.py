@@ -1,12 +1,3 @@
-"""
-pdf_loader.py — Extract and clean text from PDF files.
-
-Strategy:
-  1. Try pdfplumber first.
-  2. Fall back to pypdf.
-  3. If PDF is scanned/image-only, fall back to OCR with PyMuPDF + Tesseract.
-"""
-
 import re
 import io
 import logging
@@ -81,21 +72,11 @@ def _extract_text(pdf_path: str) -> str:
 
 
 def _extract_text_ocr(pdf_path: str) -> str:
-    """
-    OCR scanned/image-only PDF pages.
 
-    Requires:
-      pip install pymupdf pytesseract pillow
-
-    Also requires Tesseract OCR installed on Windows.
-    """
     try:
         import fitz  # PyMuPDF
         import pytesseract
         from PIL import Image
-
-        # Nếu Windows không tự nhận tesseract, mở comment dòng dưới:
-        # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     except ImportError as exc:
         raise ImportError(
